@@ -1,6 +1,6 @@
 ## 0.0.1+1
 
-- Updated README with installation instructions
+- Updated README
 - Added CHANGELOG
 
 ## 0.0.1
