@@ -21,7 +21,7 @@ To use this plugin add 'flutter_telebirr' as [dependency in your pubspec.yaml fi
 
 ```yaml
 dependencies:
-  flutter_telebirr: ^0.0.1
+  flutter_telebirr: ^0.0.1+1
 ```
 
 ### :point_right: Android
