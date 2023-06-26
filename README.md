@@ -70,10 +70,10 @@ instead use this format '`http://<IP>:<PORT>/service-openup`'
 ```dart
     TelebirrPayment.instance.configure(
       publicKey: publicKey,
-      appId: '829c8596f5664aaf9e221b275b46eec0',
-      appKey: "e5e6ea0ce63a4e7da0d3d41c163d1eb8",
+      appId: '<appId>',
+      appKey: "<appKey>",
       notifyUrl: "https://localhost/notifyUrl",
-      shortCode: "500279",
+      shortCode: "<shortCode>",
       merchantDisplayName: "Organization name",
       // mode: Mode.test,
       // testUrl: 'http://<IP>:<PORT>/service-openup',
