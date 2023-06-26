@@ -1,13 +1,20 @@
 name: flutter_telebirr
-description: A new Flutter package project.
+description: telebirr flutter sdk
 version: 0.0.1
-homepage:
+homepage: https://github.com/knatnaela/flutter_telebirr
+repository: https://github.com/knatnaela/flutter_telebirr
 
 environment:
-  sdk: '>=3.0.3 <4.0.0'
+  sdk: ">=3.0.3 <4.0.0"
   flutter: ">=1.17.0"
 
 dependencies:
+  basic_utils: ^5.6.0
+  convert: ^3.1.1
+  crypto: ^3.0.3
+  dio: ^5.2.1+1
+  encrypt: ^5.0.1
+  pointycastle: ^3.7.3
   flutter:
     sdk: flutter
 
@@ -15,6 +22,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^2.0.0
+  mockito: ^5.4.2
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

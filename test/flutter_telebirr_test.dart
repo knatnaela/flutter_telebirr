@@ -1,12 +1,28 @@
+import 'package:flutter_telebirr/src/model/telebirr_pay_response.dart';
+import 'package:flutter_telebirr/src/telebirr_payment.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:flutter_telebirr/flutter_telebirr.dart';
-
 void main() {
-  test('adds one to input values', () {
-    final calculator = Calculator();
-    expect(calculator.addOne(2), 3);
-    expect(calculator.addOne(-7), -6);
-    expect(calculator.addOne(0), 1);
+  const String publicKey = '<publicKey>';
+
+  test('Get Payment URL', () async {
+    TelebirrPayment.instance.configure(
+      publicKey: publicKey,
+      appId: '<appId>',
+      appKey: "<appKey>",
+      notifyUrl: "https://localhost/notifyUrl",
+      shortCode: "<shortCode>",
+      merchantDisplayName: "Organization name",
+      mode: Mode.test,
+      testUrl: 'http://<IP>:<port>/service-openup',
+    );
+
+    final TeleBirrPayResponse? response =
+        await TelebirrPayment.instance.startPayment(
+      itemName: "Item Name",
+      totalAmount: "10",
+    );
+
+    expect(response?.isSuccess, true);
   });
 }
