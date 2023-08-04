@@ -1,9 +1,12 @@
-import 'package:dio/dio.dart';
+import 'dart:convert';
+
+import 'package:flutter_telebirr/src/constants/constants.dart';
 import 'package:flutter_telebirr/src/model/telebirr_pay_request.dart';
 import 'package:flutter_telebirr/src/model/telebirr_pay_response.dart';
 import 'package:flutter_telebirr/src/model/telebirr_request_params.dart';
-import 'package:flutter_telebirr/src/constants/constants.dart';
 import 'package:flutter_telebirr/src/utils/utils.dart';
+import 'package:http/http.dart' as http;
+import 'package:http/http.dart';
 
 enum Mode {
   live,
@@ -190,8 +193,12 @@ class TelebirrPayment {
       /// do [POST] request to telebirr SDK API
       final response = await _doRequest(telebirrPayRequest);
       if (response.statusCode == 200) {
+        //decode response
+        final decodedResponse = jsonDecode(response.body);
+
         final TeleBirrPayResponse teleBirrPayResponse =
-            TeleBirrPayResponse.fromMap(response.data);
+            TeleBirrPayResponse.fromMap(decodedResponse);
+
         return teleBirrPayResponse;
       }
       return null;
@@ -202,23 +209,25 @@ class TelebirrPayment {
 
   /// Performs http request
   Future<Response> _doRequest(TelebirrPayRequest request) async {
-    final Dio dio = Dio(
-      BaseOptions(
-        baseUrl: _baseUrl,
-      ),
-    );
-    dio.options.headers = {
+    /// construct url request
+    final Uri teleBirrSDKUri =
+        Uri.parse('$_baseUrl${Constants.toTradeMobilePay}');
+
+    /// construct headers
+    final Map<String, String> headers = {
       'Content-type': 'application/json',
       'Accept': 'application/json'
     };
 
     try {
-      final response = await dio.post(
-        Constants.toTradeMobilePay,
-        data: request.toMap(),
+      final Response response = await http.Client().post(
+        teleBirrSDKUri,
+        headers: headers,
+        body: request.toJson(),
       );
+
       return response;
-    } on DioException catch (_) {
+    } on ClientException catch (_) {
       rethrow;
     }
   }
