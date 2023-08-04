@@ -1,6 +1,6 @@
 name: flutter_telebirr
 description: telebirr flutter sdk
-version: 0.0.3
+version: 0.0.4
 homepage: https://github.com/knatnaela/flutter_telebirr
 repository: https://github.com/knatnaela/flutter_telebirr
 
@@ -12,11 +12,11 @@ dependencies:
   basic_utils: ^5.6.0
   convert: ^3.1.1
   crypto: ^3.0.3
-  dio: ^5.2.1+1
   encrypt: ^5.0.1
   pointycastle: ^3.7.3
   flutter:
     sdk: flutter
+  http: ^1.1.0
 
 dev_dependencies:
   flutter_test:
