@@ -1,3 +1,9 @@
+## 0.0.4
+
+- Changed Dio with http package
+- Updated README
+- Added CHANGELOG
+
 ## 0.0.3
 
 - Updated README
