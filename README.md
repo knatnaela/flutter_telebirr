@@ -21,19 +21,25 @@ To use this plugin add 'flutter_telebirr' as [dependency in your pubspec.yaml fi
 
 ```yaml
 dependencies:
-  flutter_telebirr: ^0.0.2
+  flutter_telebirr: ^0.0.4
 ```
+
+To allow your application to access telebirr api on the Internet,
 
 ### :point_right: Android
 
-To allow your application to access telebirr api on the Internet, add the following permission to your `AndroidManifest.xml` file:
+add the following permission to your `AndroidManifest.xml` file:
 
 ```xml
     <uses-permission android:name="android.permission.INTERNET"/>
 
 ```
 
-telebirr test urls are HTTP so you need to add the following attribute to the `application` element:
+In order to use telebirr test urls
+
+### :point_right: Android
+
+add the following attribute to the `application` element:
 
 ```xml
     <application ... android:usesCleartextTraffic="true">
@@ -41,14 +47,7 @@ telebirr test urls are HTTP so you need to add the following attribute to the `a
 
 ### :point_right: IOS
 
-To allow your application to access telebirr api on the Internet, add the following permission to your `AndroidManifest.xml` file:
-
-```xml
-    <uses-permission android:name="android.permission.INTERNET"/>
-
-```
-
-telebirr test urls are HTTP so you need to add the following to your `Info.plist` file:
+add the following to your `Info.plist` file:
 
 ```xml
 <key>NSAppTransportSecurity</key>
